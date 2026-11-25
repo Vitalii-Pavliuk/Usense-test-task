@@ -1,0 +1,78 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 250px;
+  padding: 16px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  resize: vertical;
+  outline: none;
+
+  &:focus {
+    border-color: blue;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background-color: darkblue;
+  }
+}
+
+.selection {
+  padding: 12px;
+  background-color: lightblue;
+  border: 1px solid blue;
+  border-radius: 8px;
+  color: darkblue;
+  overflow-wrap: anywhere;
+}
+
+button:disabled {
+  background-color: lightgray;
+  color: gray;
+  cursor: not-allowed;
+}
+
+.loading {
+  color: gray;
+  font-size: 14px;
+}
+
+.error {
+  color: red;
+  background-color: pink;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.copy-message {
+  margin: 0;
+  color: black;
+  font-size: 14px;
+  padding: 10px 14px;
+  background-color: lightgray;
+  border-radius: 8px;
+}

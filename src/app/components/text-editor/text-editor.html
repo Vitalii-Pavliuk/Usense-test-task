@@ -1,0 +1,61 @@
+<div class="editor">
+  <textarea
+    #textarea
+    id="text"
+    placeholder="Enter your text here..."
+    [value]="text()"
+    (input)="onTextChange($event)"
+    (select)="onTextSelect()"
+    (click)="onTextSelect()"
+    (keyup)="onTextSelect()"
+  ></textarea>
+
+  <app-text-stats [text]="text()"></app-text-stats>
+
+  @if (selectedText().trim()) {
+    <div class="selection">
+      Selected text: <strong>{{ selectedText() }}</strong>
+    </div>
+  }
+
+  <div class="actions">
+    <button
+      type="button"
+      [disabled]="!selectedText().trim() || isLoading()"
+      (click)="findSynonyms()"
+    >
+      {{ isLoading() ? 'Loading...' : 'Find synonyms' }}
+    </button>
+
+    <button
+      type="button"
+      [disabled]="!text()"
+      (click)="copyText()"
+    >
+      Copy text
+    </button>
+  </div>
+
+  @if (copyMessage()) {
+    <p class="copy-message" role="status">
+      {{ copyMessage() }}
+    </p>
+  }
+
+  @if (isLoading()) {
+    <p class="loading" role="status">
+      Searching for synonyms...
+    </p>
+  } @else if (error()) {
+    <p class="error" role="alert">{{ error() }}</p>
+  } @else if (hasSearched()) {
+
+    <app-synonym-list
+      [synonyms]="synonyms()"
+      [selectedText]="selectedText()"
+      (synonymSelected)="replaceText($event)"
+    ></app-synonym-list>
+
+  }
+
+</div>

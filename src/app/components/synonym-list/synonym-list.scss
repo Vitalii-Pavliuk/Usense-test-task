@@ -1,0 +1,28 @@
+.synonyms {
+  border-top: 1px solid lightgray;
+  padding-top: 16px;
+
+  h3 {
+    margin: 0 0 16px;
+    font-size: 16px;
+  }
+}
+
+.synonym-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.synonym {
+  background-color: white;
+  color: blue;
+  border: 1px solid blue;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lightblue;
+  }
+}

@@ -1,11 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { TextEditor } from './components/text-editor/text-editor';
 
 @Component({
-  imports: [],
   selector: 'app-root',
-  styleUrl: './app.scss',
+  imports: [TextEditor],
   templateUrl: './app.html',
+  styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('Usense-test-task');
+
 }

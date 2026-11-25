@@ -1,0 +1,17 @@
+<div class="synonyms">
+  <h3>Suggestions for "{{ selectedText() }}"</h3>
+
+  <div class="synonym-list">
+    @for (synonym of synonyms(); track synonym.word) {
+      <button
+        class="synonym"
+        type="button"
+        (click)="selectSynonym(synonym.word)"
+      >
+        {{ synonym.word }}
+      </button>
+    } @empty {
+      <p>No synonyms found.</p>
+    }
+  </div>
+</div>
